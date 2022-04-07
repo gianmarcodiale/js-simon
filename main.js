@@ -7,7 +7,7 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 // funzione per generare numeri random da un minimo ad un massimo
 function getRandInteger (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+}
 
 /**
  * ## La funzione genera n numeri casuali compresi tra 1 e 100
@@ -29,7 +29,7 @@ function generateRandNumbers(limit) {
 let displayedNumbers = generateRandNumbers(5);
 
 // creo la timing function che mi permette di dare un tempo prestabilito alla funzione
-setTimeout(inputNumbers, 30000)
+setTimeout(showNumbers, 30000)
 // mostro l'alert con i numeri random generati nella funzione sopra
 let numbersDisplay = document.querySelector(".numbers");
 numbersDisplay.append(displayedNumbers);
@@ -38,27 +38,24 @@ numbersDisplay.append(displayedNumbers);
  * @param {number} chosedNumbers indica quanti numeri l'utente può inserire nel prompt
  */
 // creo la funzione a tempo che parte dopo 30 secondi e permette all'utente di inserire i 5 numeri 
-function inputNumbers() {
+function showNumbers() {
     // tolgo la visualizzazione dei numeri a schermo
-    numbersDisplay.style.display = "none"
-    // creo un array vuoto in cui inserire i numeri generati dall'utente
+    numbersDisplay.style.display = "none";
+}
+
+setTimeout(inputNumbers, 31000)
+function inputNumbers() {
     let inputedNumbers = [];
     // creo un ciclo per inserire i numeri generati nell'array
     while (inputedNumbers.length !== 5) {
         userNumber = (prompt("Inserisci un numero:"));
-        inputedNumbers.push(userNumber);
+        
+        if (!inputedNumbers.includes(userNumber)) {
+            inputedNumbers.push(userNumber);
+        }
         //console.log(inputedNumbers);
     }
-
-    //console.log(inputNumbers());
-
-    /* if (a === b) {
-        console.log("Hai vinto!!!");
-    } else {
-        console.log("Hai perso!!!");
-    }; */
-};
+}
 
 //console.log(displayedNumbers);
-// creo la condizione per stabilire se i numeri digitati dall'utente sono all'interno dell'array dei numeri casuali
 
